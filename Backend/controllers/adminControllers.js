@@ -10,6 +10,8 @@ const getSingleUser = async (req, res) => {
     if (!user) return res.status(404).json({ message: "User not found" });
 
     res.json(user);
+    console.log("Get single user....");
+
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -21,6 +23,7 @@ const getAllUserData = async (req, res) => {
   try {
     const users = await User.find().select("-password");
     res.json(users);
+    console.log("Get all user....");
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

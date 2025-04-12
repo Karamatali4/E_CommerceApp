@@ -7,11 +7,11 @@ const User = require("../models/userModel");
 
 
 
-// @route   POST /api/auth/register
-// @desc    Register new user
-// @access  Public
+//  POST /api/auth/register
+//    Register new user
+//   Public
 const userRegistration =  async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email,gender,phone, password } = req.body;
 
   try {
     // Check if user already exists
@@ -24,9 +24,9 @@ const userRegistration =  async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     // Create new user
-    const user = new User({ name, email, password: hashedPassword });
+    const user = new User({ name, email,gender,phone, password: hashedPassword });
     await user.save();
-
+    console.log("create new user");
     // Generate token
     const token = jwt.sign(
       { id: user._id, isAdmin: user.isAdmin },
@@ -48,4 +48,42 @@ const userRegistration =  async (req, res) => {
   }
 };
 
-module.exports = {userRegistration};
+
+
+// Login user
+const userLogin =  async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    // Check if user exists
+    const user = await User.findOne({ email });
+    if (!user)
+      return res.status(400).json({ message: "Invalid email or password" });
+
+    // Compare password
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch)
+      return res.status(400).json({ message: "Invalid email or password" });
+
+    // Generate token
+    const token = jwt.sign(
+      { id: user._id, isAdmin: user.isAdmin },
+      process.env.JWT_SECRET,
+      { expiresIn: "1d" }
+    );
+
+    res.status(200).json({
+      token,
+      user: {
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        isAdmin: user.isAdmin,
+      },
+    });
+    console.log("user login Successfully.....")
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+module.exports = {userRegistration,userLogin };
