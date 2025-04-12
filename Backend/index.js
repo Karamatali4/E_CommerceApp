@@ -4,7 +4,8 @@ const  cors = require('cors');
 const  dbConnection = require('./config/db.js');
 const  router = require('./routes/adminRoute.js');
 const adminRoutes = require('./routes/adminRoute.js');
-const { default: cartRoutes } = require('./routes/cartRoutes.js');
+const  cartRoutes  = require('./routes/cartRoutes.js');
+const authRoutes = require('./routes/authRoute.js');
 
 dotenv.config(); 
 
@@ -12,9 +13,9 @@ const app = express();
 
 app.use(express.json()); 
 app.use(cors()); 
-app.use(router); 
+// app.use(router); 
 
-// app.use("/api/auth", authRoutes);
+app.use("/api/auth", authRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/admin", adminRoutes);
 

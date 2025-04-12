@@ -27,4 +27,4 @@ const addToCart =  async (req, res) => {
   }
 };
 
-module.exports = {addToCart};
+module.exports = addToCart;
