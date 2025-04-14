@@ -6,6 +6,7 @@ const  router = require('./routes/adminRoute.js');
 const adminRoutes = require('./routes/adminRoute.js');
 const  cartRoutes  = require('./routes/cartRoutes.js');
 const authRoutes = require('./routes/authRoute.js');
+const productRouter = require('./routes/productRoute.js');
 
 dotenv.config(); 
 
@@ -18,6 +19,7 @@ app.use(cors());
 app.use("/api/auth", authRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api", productRouter);
 
 app.get('/', (req, res) => {
     res.send('Hello, MERN Stack!');

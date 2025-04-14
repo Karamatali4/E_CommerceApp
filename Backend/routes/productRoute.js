@@ -1,8 +1,11 @@
-import express from "express";
-import { verifyAdmin } from "../middleware/authMiddleware";
+const  express =  require("express");
+const productRouter = express.Router();
 
-const ProductRouter = express.Router();
+const productAdd = require("../controllers/productControllers");
+const  { verifyAdmin } = require("../middleware/authMiddleware");
 
-ProductRouter.post("/", verifyAdmin,productAdd);
 
-module.exports = ProductRouter;
+
+productRouter.post("/product", verifyAdmin,productAdd);
+
+module.exports = productRouter;
