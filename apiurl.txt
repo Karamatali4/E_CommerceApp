@@ -1,0 +1,41 @@
+
+for add to cart:  http://localhost:5000/api/cart/add
+post
+header:
+Authorization: user token
+Content-Type:application/json
+
+
+for login: http://localhost:5000/api/auth/login
+post
+header:
+ Content-Type:application/json
+
+
+for registration: http://localhost:5000/api/auth/register
+post
+header:
+ Content-Type:application/json
+
+
+
+for admin  to getallusers
+http://localhost:5000/api/admin/users
+get
+header:
+Authorization: admin token
+
+
+for admin  to get single user
+http://localhost:5000/api/admin/users/id    (id replace to actual user id)
+get
+header:
+Authorization: admin token
+
+
+for all products docs url 
+https://dummyjson.com/docs/products#products-categories
+
+
+for dummy product category wise
+https://dummyjson.com/products/categories
