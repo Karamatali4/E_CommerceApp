@@ -1,9 +1,6 @@
 const Product = require("../models/productModel");
 const User = require("../models/userModel");
 
-
-
-
 // Get Single User
 const getSingleUser = async (req, res) => {
   try {
@@ -12,12 +9,10 @@ const getSingleUser = async (req, res) => {
 
     res.json(user);
     console.log("Get single user....");
-
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
-
 
 // Get All Users
 const getAllUserData = async (req, res) => {
@@ -41,4 +36,4 @@ const getAllProduct = async (req, res) => {
   }
 };
 
-module.exports = {getSingleUser,getAllUserData,getAllProduct};
+module.exports = { getSingleUser, getAllUserData, getAllProduct };
