@@ -63,6 +63,23 @@ raw json data:
 
 
 
+
+ Delete Entire Cart (per user)
+http://localhost:5000/api/cart/delete
+DELETE
+header:
+Authorization: token user
+
+
+
+Delete one product from the user's cart
+DELETE
+http://localhost:5000/api/cart/remove/:productId
+header:
+Authorization: token
+
+
+
 for all products docs url 
 https://dummyjson.com/docs/products#products-categories
 
