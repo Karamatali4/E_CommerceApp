@@ -11,6 +11,13 @@ post
 header:
  Content-Type:application/json
 
+raw json data:
+{
+  
+  "email": "ali@example.com",
+  "password": "123456"
+}
+
 
 for registration: http://localhost:5000/api/auth/register
 post
@@ -38,6 +45,22 @@ http://localhost:5000/api/admin/products
 get
 header:
 Authorization: admin token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZmE2YjEwZGU1OGE4NGU5ZmRlYTY2YyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTc0NDczODM1NSwiZXhwIjoxNzQ0ODI0NzU1fQ.juRcb_QfNRm4gokKiM8jT5LPDQju3DP1jwPyK-s-h08
+
+
+for user add to cart (add to cart me auth and content-type dono use  karte hai)
+http://localhost:5000/api/cart/add
+header:
+
+Authorization: token  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZmE2YTI2MjFlYWIzZjcyODcyZWQ4NSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3NDUwNjkxNjcsImV4cCI6MTc0NTE1NTU2N30.MXOXs_onx0kc7yphIOnM-FW6luYX3B_vOJDbQOb9ZR4
+Content-Type:application/json
+
+raw json data:
+{
+  "userId": "67fa6a2621eab3f72872ed85",
+  "productId": "67fe987ceaff5cadc97561bd",
+  "quantity": 1
+}
+
 
 
 for all products docs url 
