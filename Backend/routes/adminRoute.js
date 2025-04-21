@@ -5,6 +5,9 @@ const {
   getSingleUser,
   getAllUserData,
   getAllProduct,
+  deleteUser,
+  updateUser,
+  deleteProduct,
 } = require("../controllers/adminControllers");
 
 // Get All Users
@@ -13,6 +16,20 @@ adminRoutes.get("/users", verifyAdmin, getAllUserData);
 // Get Single User
 adminRoutes.get("/users/:id", verifyAdmin, getSingleUser);
 
+
+// Delete user (by ID) 
+adminRoutes.delete("/users/:id", verifyAdmin, deleteUser);
+
+// Update user (by ID) 
+
+adminRoutes.put("/users/:id", verifyAdmin, updateUser);
+
+// Get All products
 adminRoutes.get("/products", verifyAdmin, getAllProduct);
+
+
+// Delete single product 
+
+adminRoutes.delete("/products/:id", verifyAdmin, deleteProduct);
 
 module.exports = adminRoutes;
