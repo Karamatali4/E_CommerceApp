@@ -84,4 +84,36 @@ const getAllProduct = async (req, res) => {
   }
 };
 
-module.exports = { getSingleUser, getAllUserData, deleteUser, updateUser, getAllProduct,deleteProduct };
+// Update single product 
+const updateProduct = async(req,res) => {
+  try {
+    const updatedProduct = await Product.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {new:true}
+    );
+    if(!updatedProduct)
+      return res.status(500).res.json({message:"Product not found..."});
+    res.status(200).json(updatedProduct);
+    console.log(updatedProduct.name," has Updated in database");
+
+  } catch (error) {
+    res.status(500).json({message:error.message});
+  }
+}
+
+
+// admin delete all Products 
+const deleteAllProduct = async(req,res) => {
+  try {
+    
+    const deletedAllProducts = await Product.deleteMany();
+    if(!deletedAllProducts)
+      return res.status(404).json({message: "Products are not found"});
+    res.status(200).json(deletedAllProducts);
+    console.log("Delete all Products Successfully...");
+  } catch (error) {
+    res.status(500).json({message:error.message});
+  }
+}
+module.exports = { getSingleUser, getAllUserData, deleteUser, updateUser, getAllProduct,deleteProduct,updateProduct,deleteAllProduct  };
