@@ -8,6 +8,9 @@ const {
   deleteUser,
   updateUser,
   deleteProduct,
+  updateProduct,
+  deleteAllProduct,
+  updatedProduct,
 } = require("../controllers/adminControllers");
 
 // Get All Users
@@ -31,5 +34,14 @@ adminRoutes.get("/products", verifyAdmin, getAllProduct);
 // Delete single product 
 
 adminRoutes.delete("/products/:id", verifyAdmin, deleteProduct);
+
+
+// Update single product 
+
+adminRoutes.put("/products/:id",verifyAdmin,updateProduct);
+
+
+// Delete All products
+adminRoutes.delete("/products", verifyAdmin, deleteAllProduct);
 
 module.exports = adminRoutes;
