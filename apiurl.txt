@@ -1,11 +1,11 @@
-
+1
 for add to cart:  http://localhost:5000/api/cart/add
 post
 header:
 Authorization: user token
 Content-Type:application/json
 
-
+2
 for login: http://localhost:5000/api/auth/login
 post
 header:
@@ -19,13 +19,14 @@ raw json data:
 }
 
 
+3
 for registration: http://localhost:5000/api/auth/register
 post
 header:
  Content-Type:application/json
 
 
-
+4
 for admin  to getallusers
 http://localhost:5000/api/admin/users
 get
@@ -33,18 +34,23 @@ header:
 Authorization: admin token
 
 
+5
 for admin  to get single user
 http://localhost:5000/api/admin/users/id    (id replace to actual user id)
 get
 header:
 Authorization: admin token
 
+
+6
 for admin  to delete single user
 http://localhost:5000/api/admin/users/67fa6a87de58a84e9fdea669
 DELETED
 header:
 Authorization: admin token
 
+
+7
 for admin  to Update single user
 http://localhost:5000/api/admin/users/68062e5588e5ea38f9cac2f6
 PUT
@@ -55,6 +61,8 @@ Content-Type:application/json
 
 
 
+
+8
 for admin  to get all products
 http://localhost:5000/api/admin/products
 get
@@ -62,6 +70,8 @@ header:
 Authorization: admin token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZmE2YjEwZGU1OGE4NGU5ZmRlYTY2YyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTc0NDczODM1NSwiZXhwIjoxNzQ0ODI0NzU1fQ.juRcb_QfNRm4gokKiM8jT5LPDQju3DP1jwPyK-s-h08
 
 
+
+9
 for admin  to delete single  products
 http://localhost:5000/api/admin/products/67fe987ceaff5cadc97561bd
 DELETE
@@ -70,7 +80,25 @@ Authorization: admin token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZmE2
 
 
 
+10
+for admin  to update single  products
+http://localhost:5000/api/admin/products/67fe9919eaff5cadc97561bf
+PUT
+header:
+Authorization: admin token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZmE2YjEwZGU1OGE4NGU5ZmRlYTY2YyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTc0NDczODM1NSwiZXhwIjoxNzQ0ODI0NzU1fQ.juRcb_QfNRm4gokKiM8jT5LPDQju3DP1jwPyK-s-h08
 
+
+
+11
+for admin  to delete all  products
+http://localhost:5000/api/admin/products
+DELETE
+header:
+Authorization: admin token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZmE2YjEwZGU1OGE4NGU5ZmRlYTY2YyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTc0NDczODM1NSwiZXhwIjoxNzQ0ODI0NzU1fQ.juRcb_QfNRm4gokKiM8jT5LPDQju3DP1jwPyK-s-h08
+
+
+
+12
 for user add to cart (add to cart me auth and content-type dono use  karte hai)
 http://localhost:5000/api/cart/add
 header:
@@ -88,6 +116,7 @@ raw json data:
 
 
 
+13
  Delete Entire Cart (per user)
 http://localhost:5000/api/cart/delete
 DELETE
@@ -96,6 +125,8 @@ Authorization: token user
 
 
 
+
+14
 Delete one product from the user's cart
 DELETE
 http://localhost:5000/api/cart/remove/:productId
@@ -104,9 +135,11 @@ Authorization: token
 
 
 
+15
 for all products docs url 
 https://dummyjson.com/docs/products#products-categories
 
 
+16
 for dummy product category wise
 https://dummyjson.com/products/categories
