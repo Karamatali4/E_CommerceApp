@@ -39,12 +39,36 @@ get
 header:
 Authorization: admin token
 
+for admin  to delete single user
+http://localhost:5000/api/admin/users/67fa6a87de58a84e9fdea669
+DELETED
+header:
+Authorization: admin token
+
+for admin  to Update single user
+http://localhost:5000/api/admin/users/68062e5588e5ea38f9cac2f6
+PUT
+header:
+Authorization: admin token
+Content-Type:application/json
+
+
+
 
 for admin  to get all products
 http://localhost:5000/api/admin/products
 get
 header:
 Authorization: admin token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZmE2YjEwZGU1OGE4NGU5ZmRlYTY2YyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTc0NDczODM1NSwiZXhwIjoxNzQ0ODI0NzU1fQ.juRcb_QfNRm4gokKiM8jT5LPDQju3DP1jwPyK-s-h08
+
+
+for admin  to delete single  products
+http://localhost:5000/api/admin/products/67fe987ceaff5cadc97561bd
+DELETE
+header:
+Authorization: admin token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZmE2YjEwZGU1OGE4NGU5ZmRlYTY2YyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTc0NDczODM1NSwiZXhwIjoxNzQ0ODI0NzU1fQ.juRcb_QfNRm4gokKiM8jT5LPDQju3DP1jwPyK-s-h08
+
+
 
 
 for user add to cart (add to cart me auth and content-type dono use  karte hai)
