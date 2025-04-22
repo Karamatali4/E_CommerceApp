@@ -11,6 +11,7 @@ const {
   updateProduct,
   deleteAllProduct,
   updatedProduct,
+  deleteAllUser,
 } = require("../controllers/adminControllers");
 
 // Get All Users
@@ -19,27 +20,27 @@ adminRoutes.get("/users", verifyAdmin, getAllUserData);
 // Get Single User
 adminRoutes.get("/users/:id", verifyAdmin, getSingleUser);
 
-
-// Delete user (by ID) 
+// Delete user (by ID)
 adminRoutes.delete("/users/:id", verifyAdmin, deleteUser);
 
-// Update user (by ID) 
+// Update user (by ID)
 
 adminRoutes.put("/users/:id", verifyAdmin, updateUser);
+
+//Delete all User
+
+adminRoutes.delete("/users", verifyAdmin, deleteAllUser);
 
 // Get All products
 adminRoutes.get("/products", verifyAdmin, getAllProduct);
 
-
-// Delete single product 
+// Delete single product
 
 adminRoutes.delete("/products/:id", verifyAdmin, deleteProduct);
 
+// Update single product
 
-// Update single product 
-
-adminRoutes.put("/products/:id",verifyAdmin,updateProduct);
-
+adminRoutes.put("/products/:id", verifyAdmin, updateProduct);
 
 // Delete All products
 adminRoutes.delete("/products", verifyAdmin, deleteAllProduct);

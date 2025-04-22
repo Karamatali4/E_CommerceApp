@@ -1,17 +1,12 @@
-
-
-const  bcrypt = require("bcrypt");
-const  jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
-
-
-
 
 //  POST /api/auth/register
 //    Register new user
 //   Public
-const userRegistration =  async (req, res) => {
-  const { name, email,gender,phone, password } = req.body;
+const userRegistration = async (req, res) => {
+  const { name, email, gender, phone, password } = req.body;
 
   try {
     // Check if user already exists
@@ -24,7 +19,13 @@ const userRegistration =  async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     // Create new user
-    const user = new User({ name, email,gender,phone, password: hashedPassword });
+    const user = new User({
+      name,
+      email,
+      gender,
+      phone,
+      password: hashedPassword,
+    });
     await user.save();
     console.log("create new user");
     // Generate token
@@ -48,10 +49,8 @@ const userRegistration =  async (req, res) => {
   }
 };
 
-
-
 // Login user
-const userLogin =  async (req, res) => {
+const userLogin = async (req, res) => {
   const { email, password } = req.body;
 
   try {
@@ -81,9 +80,9 @@ const userLogin =  async (req, res) => {
         isAdmin: user.isAdmin,
       },
     });
-    console.log("user login Successfully.....")
+    console.log("user login Successfully.....");
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 };
-module.exports = {userRegistration,userLogin };
+module.exports = { userRegistration, userLogin };

@@ -143,3 +143,11 @@ https://dummyjson.com/docs/products#products-categories
 16
 for dummy product category wise
 https://dummyjson.com/products/categories
+
+
+17
+for admin  to delete users
+http://localhost:5000/api/admin/users
+DELETE
+header:
+Authorization: admin token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZmE2YjEwZGU1OGE4NGU5ZmRlYTY2YyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTc0NDczODM1NSwiZXhwIjoxNzQ0ODI0NzU1fQ.juRcb_QfNRm4gokKiM8jT5LPDQju3DP1jwPyK-s-h08

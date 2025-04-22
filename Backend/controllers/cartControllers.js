@@ -1,10 +1,9 @@
-const Cart = require('../models/cartModel');
+const Cart = require("../models/cartModel");
 
 // Add to Cart
 const addToCart = async (req, res) => {
   const { userId, productId, quantity } = req.body;
   // const userId = req.user.id; // Use token info instead of body
-
 
   try {
     let cart = await Cart.findOne({ userId });
@@ -31,9 +30,7 @@ const addToCart = async (req, res) => {
   }
 };
 
-
 // delete all cart
-
 
 const deleteCart = async (req, res) => {
   try {
@@ -45,8 +42,6 @@ const deleteCart = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
-
 
 // Delete one product
 const removeFromCart = async (req, res) => {
@@ -64,11 +59,11 @@ const removeFromCart = async (req, res) => {
 
     cart.products = updatedProducts;
     await cart.save();
-    console.log("remove single product..")
+    console.log("remove single product..");
     res.status(200).json({ message: "Item removed from cart", cart });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
-module.exports = {addToCart,deleteCart,removeFromCart};
+module.exports = { addToCart, deleteCart, removeFromCart };

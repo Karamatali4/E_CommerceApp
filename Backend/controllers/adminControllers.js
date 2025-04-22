@@ -25,49 +25,58 @@ const getAllUserData = async (req, res) => {
   }
 };
 
-
-
-// Delete user (by ID) 
+// Delete user (by ID)
 const deleteUser = async (req, res) => {
   try {
     const deletedUser = await User.findByIdAndDelete(req.params.id);
     if (!deletedUser)
       return res.status(404).json({ message: "User not found" });
     res.status(200).json({ message: "User deleted successfully" });
-    console.log(deletedUser.name," has Deleted in database");
+    console.log(deletedUser.name, " has Deleted in database");
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
-// Update user (by ID) 
+// Update user (by ID)
 const updateUser = async (req, res) => {
   try {
-    const updatedUser = await User.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    ).select("-password");
+    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    }).select("-password");
     if (!updatedUser)
       return res.status(404).json({ message: "User not found" });
     res.status(200).json(updatedUser);
-    console.log(updatedUser.name," has Updated in database");
-
+    console.log(updatedUser.name, " has Updated in database");
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
+// Delete all Users
+const deleteAllUser = async (req, res) => {
+  try {
+    const deletedUsers = await User.deleteMany({ isAdmin: { $ne: true } }); // Delete all users except admins
+    if (deletedUsers.deletedCount === 0)
+      // Check if no users were deleted
+      return res.status(404).json({ message: "No users were deleted." });
 
+    res
+      .status(200)
+      .json({ message: "Non-admin users deleted successfully.", deletedUsers });
+    console.log("Deleted all non-admin users from the database");
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 
-// Delete single product 
+// Delete single product
 const deleteProduct = async (req, res) => {
   try {
     const deletedProduct = await Product.findByIdAndDelete(req.params.id);
     if (!deletedProduct)
       return res.status(404).json({ message: "Product not found" });
     res.status(200).json({ message: "Product deleted successfully" });
-    console.log(deletedProduct.name," has deleted in database");
-
+    console.log(deletedProduct.name, " has deleted in database");
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -84,36 +93,43 @@ const getAllProduct = async (req, res) => {
   }
 };
 
-// Update single product 
-const updateProduct = async(req,res) => {
+// Update single product
+const updateProduct = async (req, res) => {
   try {
     const updatedProduct = await Product.findByIdAndUpdate(
       req.params.id,
       req.body,
-      {new:true}
+      { new: true }
     );
-    if(!updatedProduct)
-      return res.status(500).res.json({message:"Product not found..."});
+    if (!updatedProduct)
+      return res.status(500).res.json({ message: "Product not found..." });
     res.status(200).json(updatedProduct);
-    console.log(updatedProduct.name," has Updated in database");
-
+    console.log(updatedProduct.name, " has Updated in database");
   } catch (error) {
-    res.status(500).json({message:error.message});
+    res.status(500).json({ message: error.message });
   }
-}
+};
 
-
-// admin delete all Products 
-const deleteAllProduct = async(req,res) => {
+// admin delete all Products
+const deleteAllProduct = async (req, res) => {
   try {
-    
     const deletedAllProducts = await Product.deleteMany();
-    if(!deletedAllProducts)
-      return res.status(404).json({message: "Products are not found"});
+    if (!deletedAllProducts)
+      return res.status(404).json({ message: "Products are not found" });
     res.status(200).json(deletedAllProducts);
     console.log("Delete all Products Successfully...");
   } catch (error) {
-    res.status(500).json({message:error.message});
+    res.status(500).json({ message: error.message });
   }
-}
-module.exports = { getSingleUser, getAllUserData, deleteUser, updateUser, getAllProduct,deleteProduct,updateProduct,deleteAllProduct  };
+};
+module.exports = {
+  getSingleUser,
+  getAllUserData,
+  deleteUser,
+  updateUser,
+  getAllProduct,
+  deleteProduct,
+  updateProduct,
+  deleteAllProduct,
+  deleteAllUser,
+};
