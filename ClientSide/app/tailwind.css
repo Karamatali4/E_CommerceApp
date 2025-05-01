@@ -10,12 +10,3 @@ body {
     color-scheme: dark;
   }
 }
-
-
-:root{
-  --primary-color--: #057A55;   /* grean 600 */
-  --secondary-color--: #F3FAF7; /* grean 50 */
-  
-  --tertiary-color--:#1F2937 ;  /* Gray 800 */
-  
-}
