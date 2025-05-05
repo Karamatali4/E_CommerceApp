@@ -1,11 +1,11 @@
 import React from 'react'
 
-function About() {
+export default function About() {
   return (
     <div>
-      
+      about
     </div>
   )
 }
 
-export default About
+
