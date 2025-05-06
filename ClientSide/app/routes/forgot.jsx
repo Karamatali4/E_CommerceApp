@@ -1,8 +1,5 @@
 import { Form } from "@remix-run/react";
-import p1 from "../../public/p1.jpg"
-import p2 from "../../public/p2.jpg"
-import p3 from "../../public/p3.jpg"
-import p4 from "../../public/p4.jpg"
+
 
 // app/routes/user.forgot.jsx
 
@@ -15,10 +12,10 @@ export default function ForgotPassword() {
           <div className="w-full lg:w-1/2 bg-blue-500 text-white p-8 flex flex-col items-center justify-center">
             <h1 className="text-3xl font-bold mb-6">KnobExpress</h1>
             <div className="grid grid-cols-2 gap-4">
-              <img src={p1} className="rounded-xl w-full h-28 object-cover" />
-              <img src={p2} className="rounded-xl w-full h-28 object-cover" />
-              <img src={p3} className="rounded-xl w-full h-28 object-cover" />
-              <img src={p4} className="rounded-xl w-full h-28 object-cover" />
+            <img src="/p1.jpg" className="rounded-xl w-full h-28 object-cover" />
+            <img src="/p2.jpg" className="rounded-xl w-full h-28 object-cover" />
+            <img src="/p3.jpg" className="rounded-xl w-full h-28 object-cover" />
+            <img src="/p4.jpg" className="rounded-xl w-full h-28 object-cover" />
             </div>
           </div>
   
