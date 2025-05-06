@@ -1,4 +1,4 @@
-import { Form } from "@remix-run/react";
+import { Form, Link } from "@remix-run/react";
 
 
 // app/routes/user.forgot.jsx
@@ -10,7 +10,7 @@ export default function ForgotPassword() {
           
           {/* Left Section */}
           <div className="w-full lg:w-1/2 bg-blue-500 text-white p-8 flex flex-col items-center justify-center">
-            <h1 className="text-3xl font-bold mb-6">KnobExpress</h1>
+            <h1 className="text-3xl font-bold mb-6">E-Commerce</h1>
             <div className="grid grid-cols-2 gap-4">
             <img src="/p1.jpg" className="rounded-xl w-full h-28 object-cover" />
             <img src="/p2.jpg" className="rounded-xl w-full h-28 object-cover" />
@@ -36,7 +36,7 @@ export default function ForgotPassword() {
                   type="email"
                   placeholder="Enter Email"
                   required
-                  className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full border rounded-lg px-3 py-2 focus:outline-none outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
               <button
@@ -48,7 +48,10 @@ export default function ForgotPassword() {
             </Form>
   
             <div className="mt-4 text-sm text-blue-600 text-center">
-              <a href="/user/login">Back to Login</a>
+              
+              <Link to="/login" className="text-blue-600 text-sm">
+              Back to Login
+                            </Link>
             </div>
           </div>
         </div>

@@ -1,10 +1,7 @@
 // app/routes/user.login.jsx
 
-import { Form } from "@remix-run/react";
-import p1 from "../../public/p1.jpg"
-import p2 from "../../public/p2.jpg"
-import p3 from "../../public/p3.jpg"
-import p4 from "../../public/p4.jpg"
+import { Form, Link } from "@remix-run/react";
+
 // app/routes/user.login.jsx
 
 export default function Login() {
@@ -53,7 +50,9 @@ export default function Login() {
               />
             </div>
             <div className="text-right text-sm text-blue-600">
-              <a href="#">Forgot password?</a>
+            <Link to="/forgot" className="text-blue-600 text-sm">
+                Forgot?
+              </Link>
             </div>
             <button
               type="submit"
@@ -61,6 +60,11 @@ export default function Login() {
             >
               Sign In
             </button>
+            <div className="text-center text-sm text-blue-600">
+            <Link to="/register" className="text-blue-600 text-sm">
+                Sign up
+              </Link>
+            </div>
           </Form>
         </div>
       </div>

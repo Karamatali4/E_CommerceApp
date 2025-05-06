@@ -1,5 +1,5 @@
 // app/routes/user.reset.jsx
-import { Form } from "@remix-run/react";
+import { Form, Link } from "@remix-run/react";
 
 
 export default function ResetPassword() {
@@ -8,7 +8,7 @@ export default function ResetPassword() {
       <div className="flex flex-col lg:flex-row w-full max-w-6xl bg-white shadow-lg rounded-2xl overflow-hidden">
         {/* Left Section */}
         <div className="w-full lg:w-1/2 bg-blue-500 text-white p-8 flex flex-col items-center justify-center">
-          <h1 className="text-3xl font-bold mb-6">KnobExpress</h1>
+          <h1 className="text-3xl font-bold mb-6">E-Commerce</h1>
           <div className="grid grid-cols-2 gap-4">
             <img src="/p1.jpg" className="rounded-xl w-full h-28 object-cover" />
             <img src="/p2.jpg" className="rounded-xl w-full h-28 object-cover" />
@@ -59,7 +59,11 @@ export default function ResetPassword() {
           </Form>
 
           <div className="mt-4 text-sm text-blue-600 text-center">
-            <a href="/user/forgot">Back to Forgot password</a>
+            
+            <Link to="/forgot" className="text-blue-600 text-sm">
+            Back to Forgot password
+              </Link>
+            
           </div>
         </div>
       </div>
