@@ -1,12 +1,15 @@
-import {
-  Links,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
+import { 
+  Links, 
+  Meta, 
+  Outlet, 
+  Scripts, 
+  ScrollRestoration, 
+  
 } from "@remix-run/react";
-
+import remixReact from "@remix-run/react";
+const { useCatch } = remixReact;
 import "./tailwind.css";
+import Error404 from "./components/Error404";
 
 export const links = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -38,6 +41,24 @@ export function Layout({ children }) {
     </html>
   );
 }
+
+
+// ✅ CatchBoundary for 404 errors
+export function CatchBoundary() {
+  const caught = useCatch();
+
+  if (caught.status === 404) {
+    return <Error404 />;
+  }
+
+  return (
+    <div>
+      <h1>{caught.status} {caught.statusText}</h1>
+      <p>{caught.data || "Something went wrong."}</p>
+    </div>
+  );
+}
+
 
 export default function App() {
   return <Outlet />;
