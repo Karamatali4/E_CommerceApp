@@ -21,6 +21,9 @@ app.use("/api/cart", cartRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api", productRouter);
 
+app.use('/.well-known/appspecific/com.chrome.devtools.json', (req, res) => {
+  res.status(404).send('Not Found');
+});
 app.get("/", (req, res) => {
   res.send("Hello, MERN Stack!");
 });

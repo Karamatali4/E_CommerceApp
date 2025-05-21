@@ -1,8 +1,15 @@
+import Footer from "../components/footer";
+import Header from "../components/header";
 
 export default function Index() {
   return (
    <>
-   <h1>index page</h1>
+   <Header/>
+    <div className="container">
+      <h1>hi</h1>
+    </div>
+    
+   <Footer/>
    </>
   );
 }

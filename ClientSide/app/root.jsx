@@ -13,6 +13,7 @@ import Error404 from "./components/Error404";
 
 export const links = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
+  { rel: "icon", type: "image/png", href: "logo.png" },
   {
     rel: "preconnect",
     href: "https://fonts.gstatic.com",
@@ -42,6 +43,21 @@ export function Layout({ children }) {
   );
 }
 
+// ✅ ErrorBoundary
+export function ErrorBoundary({ error }) {
+  return (
+    <html lang="en">
+      <head>
+        <title>Error</title>
+      </head>
+      <body>
+        <h1>Something went wrong!</h1>
+        <p>{error.message}</p>
+        <Error404 />
+      </body>
+    </html>
+  );
+}
 
 // ✅ CatchBoundary for 404 errors
 export function CatchBoundary() {
