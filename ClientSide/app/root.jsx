@@ -1,14 +1,8 @@
-import { 
-  Links, 
-  Meta, 
-  Outlet, 
-  Scripts, 
-  ScrollRestoration, 
-  
-} from "@remix-run/react";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
+import "./tailwind.css";
 import remixReact from "@remix-run/react";
 const { useCatch } = remixReact;
-import "./tailwind.css";
+
 import Error404 from "./components/Error404";
 
 export const links = () => [
@@ -75,7 +69,7 @@ export function CatchBoundary() {
   );
 }
 
-
+// ✅ Main App Component
 export default function App() {
   return <Outlet />;
 }
